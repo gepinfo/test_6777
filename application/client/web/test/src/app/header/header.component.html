@@ -1,0 +1,78 @@
+<nav data-gjs="navbar" id="template-igjrk" class="navbar ">
+    <div id="template-intck" class="navbar-container ">
+        <div id="template-icpy" class=""></div>
+        <img id="ii0r8m" src="https://cdn.grapedrop.com/uf9ef8595751c4d1f87c91168f5d51a8c/dad97ef59d704ea0b66e4e5416c67f0a_new_logo_gep.png"
+        class="" />
+        <div id="template-iak8e" class="navbar-burger ">
+            <div id="template-iygi4" class="navbar-burger-line ">
+                <textnode id="template-i6a9" class=""></textnode>
+            </div>
+            <div id="template-ikntj" class="navbar-burger-line ">
+                <textnode id="template-iooi" class=""></textnode>
+            </div>
+            <div id="template-i0h9u" class="navbar-burger-line ">
+                <textnode id="template-ijnkg" class=""></textnode>
+            </div>
+        </div>
+        <div data-gjs="navbar-items" id="template-ior1x" class="navbar-item-c ">
+            <nav data-gjs="navbar-menus" id="template-iyv8e" class="navbar-menus ">
+                <label id="template-i1jwl" class="">
+                    <textnode id="template-iazib" class="">Home</textnode>
+                </label>
+                <label id="template-i1rhd" class="">
+                    <textnode id="template-iaaaj" class="">About</textnode>
+                </label>
+                <label id="template-ic1kh" class="btn btn-primary ">
+                    <textnode id="template-i3aeu" class="">Contact us</textnode>
+                </label>
+            </nav>
+            <div id="MainMenu" class="">
+<a id="izdchj" class="menu-link nav-item" *ngIf='userId!=null' [routerLink]="['/home']">
+                                                                {{'source.home' | i18next}}
+                                                            
+                                                        </a><a id="izdchj"
+                class="menu-link nav-item" *ngIf='isAdminUser && userId!=null' [routerLink]="['/admin']">
+                                                            {{'source.admin' | i18next}}
+                                                         </a>
+
+<a id="izdchj"
+                class="menu-link nav-item" *ngIf='userId!=null' [routerLink]="['/sefscreen']">
+                                                            {{'source.sefscreen' | i18next}}
+                                                            </a>
+ <a id="i4izs3"
+                class="menu-link nav-item">
+                                <a style="font-size: medium;" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"
+                                class="btn dropdown-toggle" id="dropdownMenuButton"> 
+                                {{'source.selectLanguage' | i18next }} <b class="caret"></b> </a>
+
+                <ul
+                class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li> <a class="dropdown-item" *ngFor="let lang of languages" (click)='confirmLangModel(lang)'> {{'languages.' + lang | i18nextCap }}</a>
+
+                    </li>
+                    </ul>
+                    </a>
+                    <button type="button" id="ipek5x" class="btn btn-primary" *ngIf='userId!=null'
+                    (click)="logout()"> <a style="color: white;">{{'source.logout' | i18next}}</a>
+
+                    </button>
+                    <button id="ipek5x" class="btn btn-primary" type="button" *ngIf='userId==null'
+                    [routerLink]="['/login']">{{'source.login' | i18next}}</button>
+                    <textnode id="template-ijdmp" class=""></textnode>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'top': '100px','display': confirmLangChangeModal}">
+    <div class="modal-dialog modal-sm" role="dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>language change cause you to re-login</p>
+            </div>
+            <div class="modal-footer" style="padding: 5px">
+                <button type="button" (click)="confirmLangChange()" class="btn btn-default">Confirm</button>
+                <button type="button" (click)="onCloseHandled()" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
