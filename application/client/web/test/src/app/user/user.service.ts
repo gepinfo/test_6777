@@ -1,33 +1,38 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { SharedService } from '../../shared/shared.service';
+import React from "react";
+import axios from "axios";
+import { Web,Upload  } from '../../shared/shared.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UserService {
+export const details = (user: any) => {
+  console.log(user);
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+              }
+   }
+  return axios.post(Web()+'/signup', user);
+}
 
-  constructor(private http: HttpClient, private router: Router, private sharedService: SharedService) { }
-
-
-  Getuser(userid: any): Observable<any> {
-    return this.http.get(this.sharedService.WEB_API + `/getuser/${userid}`);
+export const deleteUser=(id: any)=> {
+    return axios.delete(Web () + '/deleteuser/' + id);
   }
 
-  Getroles(): Observable<any> {
-    return this.http.get(this.sharedService.WEB_API + '/getallroles');
+  export const  Getallusers=()=> {
+    return axios.get(Web()+'/getallusers');
   }
 
-  Updateuser(userobject: any): Observable<any> {
-    return this.http.put(this.sharedService.WEB_API + '/updateuser/', userobject);
+ export const  uploadImgFile=()=>{
+    return (Upload()+'/addAttachment');
   }
-  deleteUser(id: any): Observable<any> {
-    return this.http.delete(this.sharedService.WEB_API + '/deleteuser/' + id);
-  }
+export const  Getuser=(userid: any)=> {
+  return axios.get(Web()+`/getuser/${userid}`);
+}
 
-  UpdateUserImg(userobject: any): Observable<any> {
-    return this.http.put(this.sharedService.WEB_API + '/updateuserimg', userobject);
-  }
+export const  UpdateUserImg=(userobject: any)=> {
+  return axios.put(Web()+'/updateuserimg', userobject);
+}
+export const Updateuser=(userobject: any)=> {
+  return axios.put(Web()+'/updateuser/', userobject);
+}
+export const Getroles=()=> {
+  return axios.get(Web()+'/getallroles');
 }

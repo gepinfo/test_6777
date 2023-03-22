@@ -1,12 +1,19 @@
-import { Injectable } from '@angular/core';
+
 import { environment } from '../environments/environment';
 
-@Injectable()
-export class SharedService {
 
-     public WEB_API = environment.WEB_API;
-     public UPLOAD_API = environment.UPLOAD_API;
-    public MOBILE_API = environment.MOBILE_API;
+
+     var  WEB_API = environment.WEB_API; 
+     var UPLOAD_API = environment.UPLOAD_API;
+    const MOBILE_API = environment.MOBILE_API;
+     var WEB_API: string;
+    var UPLOAD_API:string;
     
+export const Web=()=>{
+    return WEB_API;
+}
+
+export const Upload =()=>{
+    return UPLOAD_API;
 }
   
